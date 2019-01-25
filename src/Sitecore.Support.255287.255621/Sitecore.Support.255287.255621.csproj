@@ -42,6 +42,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\SC.Microsoft.Extensions.DependencyInjection.Abstractions.9.0.2\lib\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Sitecore.EmailCampaign, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SC.Sitecore.EmailCampaign.9.0.1\lib\Sitecore.EmailCampaign.dll</HintPath>
       <Private>False</Private>
@@ -56,6 +60,10 @@
     </Reference>
     <Reference Include="Sitecore.EmailCampaign.Model, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SC.Sitecore.EmailCampaign.Model.9.0.1\lib\Sitecore.EmailCampaign.Model.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.EmailCampaign.Model.Web, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SC.Sitecore.EmailCampaign.Model.Web.9.0.2\lib\Sitecore.EmailCampaign.Model.Web.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Sitecore.ExM.Framework, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -97,18 +105,28 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmailCampaign\Cd\sitecore_modules\Web\EXM\ConfirmSubscription.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="EmailCampaign\Cd\sitecore_modules\Web\EXM\Unsubscribe.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="EmailCampaign\Cd\sitecore_modules\Web\EXM\UnsubscribeFromAll.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="EmailCampaign\Cm\UI\Handlers\ConfirmSubscriptionMessageHandler.cs" />
+    <Compile Include="EmailCampaign\Cm\UI\Handlers\SubscribeMessageHandler.cs" />
     <Compile Include="EmailCampaign\Cm\UI\Handlers\UnsubscribeMessageHandler.cs" />
+    <Compile Include="EmailCampaign\Model\Messaging\ConfirmSubscriptionMessage.cs" />
+    <Compile Include="EmailCampaign\Model\Messaging\SubscribeMessage.cs" />
     <Compile Include="EmailCampaign\Model\Messaging\UnsubscribeMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Include\zzz\Sitecore.Support.255287.255621.config" />
+    <Content Include="App_Config\Include\zzz\Sitecore.Support.255287.255621.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="sitecore modules\Web\EXM\ConfirmSubscription.aspx" />
     <Content Include="sitecore modules\Web\EXM\Unsubscribe.aspx" />
     <Content Include="sitecore modules\Web\EXM\UnsubscribeFromAll.aspx" />
   </ItemGroup>
